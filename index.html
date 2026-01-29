@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>União Europeia | História e Estratégia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@200;400;700;800&display=swap');
+        
+        :root {
+            --eu-blue: #003399;
+            --eu-gold: #FFCC00;
+            --dark-bg: #050810;
+            --accent-blue: #3b82f6;
+            --glass: rgba(15, 23, 42, 0.6);
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--dark-bg);
+            color: #f1f5f9;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Corrigido: Blobs de fundo */
+        .bg-blob {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(140px);
+            z-index: -1;
+            opacity: 0.12;
+            animation: move 25s infinite alternate;
+            pointer-events: none;
+        }
+        .blob-1 { background: var(--eu-blue); top: -150px; left: -150px; }
+        .blob-2 { background: var(--eu-gold); bottom: -150px; right: -150px; animation-delay: -7s; }
+
+        @keyframes move {
+            from { transform: translate(0, 0) scale(1); }
+            to { transform: translate(150px, 150px) scale(1.3); }
+        }
+
+        .glass-card {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 1.5rem;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(59, 130, 246, 0.4);
+        }
+
+        /* CORREÇÃO DA LINHA 62: Gradiente de Texto */
+        .text-gradient {
+            background: linear-gradient(135deg, #ffffff 30%, #64748b 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+            display: inline-block;
+        }
+
+        /* CORREÇÃO: Alinhamento da Timeline */
+        .timeline-line {
+            position: absolute;
+            left: 21px; /* Centro exato */
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--eu-blue), var(--accent-blue), #1e293b, transparent);
+            transform: translateX(-50%);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 21px; /* Sincronizado com a linha */
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--dark-bg);
+            border: 3px solid var(--accent-blue);
+            z-index: 10;
+            transform: translateX(-50%);
+        }
+
+        .section-tag {
+            background: rgba(59, 130, 246, 0.08);
+            color: var(--accent-blue);
+            padding: 5px 14px;
+            border-radius: 99px;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: 1px solid rgba(59, 130, 246, 0.15);
+        }
+
+        .nav-blur {
+            background: rgba(5, 8, 16, 0.85);
+            backdrop-filter: saturate(180%) blur(15px);
+        }
+
+        /* Melhoria: Botão ativo no JS */
+        .active-tab {
+            border: 1px solid var(--accent-blue) !important;
+            background: rgba(59, 130, 246, 0.1) !important;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="bg-blob blob-1"></div>
+    <div class="bg-blob blob-2"></div>
+
+    <nav class="fixed top-0 w-full z-[100] px-6 py-6 pointer-events-none">
+        <div class="max-w-6xl mx-auto flex justify-between items-center glass-card px-8 py-4 nav-blur pointer-events-auto">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl flex items-center justify-center shadow-lg shadow-blue-900/40">
+                    <i class="fas fa-landmark text-yellow-400"></i>
+                </div>
+                <div>
+                    <span class="block font-black text-xl leading-none tracking-tighter">EURO<span class="text-blue-500">LEX</span></span>
+                    <span class="text-[8px] uppercase tracking-[0.3em] text-gray-500 font-bold">Arquivo e Geopolítica</span>
+                </div>
+            </div>
+            <div class="hidden md:flex space-x-10 text-[10px] font-black uppercase tracking-widest text-gray-400">
+                <a href="#cronologia" class="hover:text-white transition-colors">Cronologia</a>
+                <a href="#tratados" class="hover:text-white transition-colors">Tratados</a>
+                <a href="#geopolitica" class="hover:text-white transition-colors">Geopolítica</a>
+                <a href="#instituicoes" class="hover:text-white transition-colors">Instituições</a>
+            </div>
+            <div class="flex items-center">
+                <span class="text-[9px] font-black text-gray-600 uppercase tracking-widest">v2.5 // 2026</span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-6 pt-48">
+        
+        <section id="cronologia" class="mb-32">
+            <div class="mb-16">
+                <span class="section-tag mb-4 inline-block">Memória Europeia</span>
+                <h2 class="text-5xl font-black text-gradient tracking-tighter">A Construção de um Continente.</h2>
+                <p class="mt-4 text-gray-400 max-w-2xl">Desde as cinzas da Segunda Guerra Mundial até à união política e monetária contemporânea.</p>
+            </div>
+
+            <div class="relative pl-12">
+                <div class="timeline-line"></div>
+                
+                <div class="relative mb-12 group">
+                    <div class="timeline-dot top-8"></div>
+                    <div class="glass-card p-8">
+                        <span class="text-blue-400 font-black text-xs">9 de Maio de 1950</span>
+                        <h3 class="text-xl font-bold mt-1 mb-3">A Declaração Schuman</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">O ponto de partida. Robert Schuman propõe que a produção de carvão e aço seja gerida por uma autoridade comum.</p>
+                    </div>
+                </div>
+
+                <div class="relative mb-12 group">
+                    <div class="timeline-dot top-8"></div>
+                    <div class="glass-card p-8 border-l-4 border-l-blue-500">
+                        <span class="text-blue-400 font-black text-xs">1 de Janeiro de 1986</span>
+                        <h3 class="text-xl font-bold mt-1 mb-3">Adesão de Portugal e Espanha</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">A "Europa do Sul" junta-se ao projeto, consolidando as democracias ibéricas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="instituicoes" class="pb-32">
+            <div class="mb-16">
+                <span class="section-tag mb-4 inline-block">Governância</span>
+                <h2 class="text-5xl font-black text-gradient tracking-tighter">O Triângulo Decisório.</h2>
+            </div>
+
+            
+
+            <div class="grid lg:grid-cols-3 gap-6 mb-12">
+                <div class="glass-card p-6 text-center">
+                    <div class="w-12 h-12 bg-blue-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-users-cog text-blue-500"></i>
+                    </div>
+                    <h4 class="font-bold mb-2">Comissão Europeia</h4>
+                    <p class="text-[11px] text-gray-500 uppercase tracking-widest font-black mb-4">Executivo</p>
+                    <p class="text-xs text-gray-400">Propõe leis e garante o cumprimento dos tratados.</p>
+                </div>
+                <div class="glass-card p-6 text-center">
+                    <div class="w-12 h-12 bg-yellow-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-landmark text-yellow-500"></i>
+                    </div>
+                    <h4 class="font-bold mb-2">Parlamento Europeu</h4>
+                    <p class="text-[11px] text-gray-500 uppercase tracking-widest font-black mb-4">Legislativo</p>
+                    <p class="text-xs text-gray-400">Eleito diretamente. Co-decide leis e orçamento.</p>
+                </div>
+                <div class="glass-card p-6 text-center">
+                    <div class="w-12 h-12 bg-green-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-balance-scale text-green-500"></i>
+                    </div>
+                    <h4 class="font-bold mb-2">Conselho da UE</h4>
+                    <p class="text-[11px] text-gray-500 uppercase tracking-widest font-black mb-4">Estados-Membros</p>
+                    <p class="text-xs text-gray-400">Representa os governos dos Estados-membros.</p>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-8">
+                <div class="lg:col-span-4 space-y-3" id="group-nav"></div>
+                <div class="lg:col-span-8">
+                    <div class="glass-card p-8 min-h-[400px]" id="mep-list-container">
+                        <div id="mep-list" class="space-y-4">
+                            <div class="text-center py-20 opacity-20">
+                                <i class="fas fa-id-badge text-5xl mb-4"></i>
+                                <p class="text-xs uppercase font-bold tracking-widest">Selecione uma bancada</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const mepData = {
+            PPE: {
+                name: "Grupo do Partido Popular Europeu",
+                color: "#1e40af", seats: 188,
+                meps: [
+                    { name: "Sebastião Bugalho", country: "Portugal", party: "AD/PSD", role: "Eurodeputado" },
+                    { name: "Ursula von der Leyen", country: "Alemanha", party: "CDU", role: "Presidente da Comissão" }
+                ]
+            },
+            SD: {
+                name: "Socialistas e Democratas",
+                color: "#dc2626", seats: 136,
+                meps: [
+                    { name: "António Costa", country: "Portugal", party: "PS", role: "Pres. Conselho Europeu" },
+                    { name: "Marta Temido", country: "Portugal", party: "PS", role: "Eurodeputada" }
+                ]
+            }
+        };
+
+        function init() {
+            const nav = document.getElementById('group-nav');
+            Object.keys(mepData).forEach(key => {
+                const group = mepData[key];
+                const btn = document.createElement('button');
+                btn.className = "w-full text-left p-6 glass-card mb-2 flex items-center justify-between group hover:bg-white/5 transition border-none pointer-events-auto";
+                btn.innerHTML = `
+                    <div class="flex items-center space-x-4">
+                        <div class="w-1.5 h-8 rounded-full" style="background:${group.color}"></div>
+                        <div>
+                            <p class="font-black text-xs group-hover:text-blue-400 transition">${key}</p>
+                            <p class="text-[9px] text-gray-500 uppercase font-bold tracking-tighter">${group.name}</p>
+                        </div>
+                    </div>
+                    <span class="text-xs font-bold opacity-30">${group.seats}</span>
+                `;
+                btn.onclick = () => {
+                    document.querySelectorAll('#group-nav button').forEach(b => b.classList.remove('active-tab'));
+                    btn.classList.add('active-tab');
+                    renderMeps(key);
+                };
+                nav.appendChild(btn);
+            });
+        }
+
+        function renderMeps(key) {
+            const list = document.getElementById('mep-list');
+            const data = mepData[key];
+            list.innerHTML = `
+                <div class="mb-8 pb-4 border-b border-white/5">
+                    <h3 class="text-2xl font-black">${key} <span class="text-sm font-normal text-gray-500 ml-2">Membros-Chave</span></h3>
+                </div>
+                ${data.meps.map(m => `
+                    <div class="p-4 flex justify-between items-center bg-white/[0.02] rounded-xl border border-white/5 hover:bg-white/5 transition-all mb-3">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center font-bold text-blue-400">${m.name[0]}</div>
+                            <div>
+                                <p class="font-bold text-sm">${m.name}</p>
+                                <p class="text-[9px] text-gray-500 uppercase">${m.country} &bull; ${m.party}</p>
+                            </div>
+                        </div>
+                        <span class="text-[9px] font-black uppercase text-blue-500 tracking-widest">${m.role}</span>
+                    </div>
+                `).join('')}
+            `;
+        }
+        init();
+    </script>
+</body>
+</html>
